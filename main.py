@@ -1,4 +1,8 @@
 from room import Room
+from character import Character
+
+dave = Character("Dave", "A smelly zombie")
+dave.describe()
 
 kitchen = Room("Kitchen")
 kitchen.set_description("A dank and dirty room buzzing with flies.")
