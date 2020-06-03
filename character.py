@@ -22,3 +22,8 @@ class Character():
             print("[" + self.name + "]:" + self.conversation)
         else:
             print(self.name + "doesn't wants to talk") 
+
+    # Fight with this character
+    def fight(self, combat_item):
+        print(self.name + " doesn't want to fight with you")
+        return True
