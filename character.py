@@ -46,6 +46,17 @@ class Enemy(Character):
             print("You killed " + self.name + " with the " + combat_item)
             return True
         else:
-            print(self.name + " crushed you.")
-            print("Better try next time. RIP.")
+            print(self.name + " crushes you.")
             return False
+
+    def steal(self):
+        print("You steal from " + self.name)
+
+class Friend(Character):
+
+    def __init__(self, char_name, char_description):
+        super().__init__(self_char, self_description)
+        self.feeling = None
+    
+    def hug(self):
+        print(self.name + "hugs you back!")
