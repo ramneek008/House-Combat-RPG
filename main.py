@@ -1,7 +1,7 @@
 from room import Room
-from character import Character
+from character import Enemy
 
-dave = Character("Dave", "A smelly zombie")
+dave = Enemy("Dave", "A smelly zombie")
 dave.describe()
 
 dave.set_conversation("What's up, dude!")
