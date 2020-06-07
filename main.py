@@ -73,20 +73,21 @@ while dead == False:
             print("There is no one here to fight with")
         else:
             print("What will you fight with?")
-            fight_with = input("1. watermelon\n2. cheese\n3. carrot\n")
+            fight_with = input()
 
             if fight_with in backpack:
-                # I have it
+                if inhabitant.fight(fight_with) == True:
+                    print("Hooray, you won the fight!")
+                    current_room.set_character(None)
+                else:
+                    print("Oh dear you lost the fight.")
+                    print("That's the end of the game. RIP")
+                    dead = True
             else:
                 # I dont have it
+                print("You don't have a " + fight_with)
 
-            if inhabitant.fight(fight_with) == True:
-                print("Hooray, you won the fight!")
-                current_room.set_character(None)
-            else:
-                print("Oh dear you lost the fight.")
-                print("That's the end of the game. RIP")
-                dead = True
+            
     
     elif command == "hug":
         if inhabitant == None:
@@ -99,3 +100,9 @@ while dead == False:
 
     elif command == "take":
         # Put item in backpack and remove from room
+        if item is not None:
+            print("You put the " + item.get_name() + " in your backpack.")
+            backpack.append(item.get_name())
+            current_room.set_item(None)
+        else:
+            print("There's nothing here to take!")
