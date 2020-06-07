@@ -1,9 +1,13 @@
 from room import Room
 from character import Enemy, Friend
+from item import Item
 
 dave = Enemy("Dave", "A smelly zombie")
 dave.set_conversation("What's up, dude!")
 dave.set_weakness("cheese")
+
+cheese = Item("cheese")
+cheese.set_description("A large and smelly block of cheese")
 
 kitchen = Room("Kitchen")
 kitchen.set_description("A dank and dirty room buzzing with flies.")
@@ -14,6 +18,8 @@ dining_hall.set_character(dave)
 
 ballroom = Room("Ballroom")
 ballroom.set_description("A vast room with a shiny wooden floor. Huge candlesticks guard the entrance.")
+ballroom.set_item(cheese)
+
 
 kitchen.link_room(dining_hall, 'south')
 dining_hall.link_room(kitchen, 'north')
@@ -32,15 +38,24 @@ dead = False
 while dead == False:
     print("\n")
     current_room.get_details()
+
     inhabitant = current_room.get_character()
     if inhabitant is not None:
         inhabitant.describe()
+
+    item = current_room.get_item()
+    if item is not None:
+        item.describe()
+
     command = input("> ")
+
     if command in ["north", "south", "east", "west"]:
         # Move in the given direction
         current_room = current_room.move(command)
+
     elif  command  == "talk":
         # Talk to character
+        pass
         
     elif command == "fight":
         # Fight with character if its enemy
