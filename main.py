@@ -2,31 +2,41 @@ from room import Room
 from character import Enemy, Friend
 from item import Item
 
-dave = Enemy("Dave", "A smelly zombie")
-dave.set_conversation("What's up, dude!")
-dave.set_weakness("cheese")
-
-cheese = Item("cheese")
-cheese.set_description("A large and smelly block of cheese")
-
 kitchen = Room("Kitchen")
 kitchen.set_description("A dank and dirty room buzzing with flies.")
 
 dining_hall = Room("Dining Hall")
 dining_hall.set_description("A large room with a table and ornate golden decorations on each wall.");
-dining_hall.set_character(dave)
 
 ballroom = Room("Ballroom")
 ballroom.set_description("A vast room with a shiny wooden floor. Huge candlesticks guard the entrance.")
-ballroom.set_item(cheese)
-
 
 kitchen.link_room(dining_hall, 'south')
 dining_hall.link_room(kitchen, 'north')
 dining_hall.link_room(ballroom, 'west')
 ballroom.link_room(dining_hall, 'east')
 
+
+dave = Enemy("Dave", "A smelly zombie")
+dave.set_conversation("What's up, dude! I'm hungry.")
+dave.set_weakness("cheese")
+dining_hall.set_character(dave)
+
+regas = Enemy("Regas", "An enormous spider with countless eyes and furry legs.")
+regas.set_conversation("Ssss....I'm so bored....")
+regas.set_weakness("book")
+ballroom.set_character(regas)
+
+cheese = Item("cheese")
+cheese.set_description("A large and smelly block of cheese")
+ballroom.set_item(cheese)
+
+book = Item("book")
+book.set_description("A heavy book entitled 'Knitting for dummies'")
+dining_hall.set_item(book)
+
 current_room = kitchen
+backpack = []
 
 # Add a new character
 catrina = Friend("Catrina", "A friendly skeleton")
@@ -64,7 +74,13 @@ while dead == False:
         else:
             print("What will you fight with?")
             fight_with = input("1. watermelon\n2. cheese\n3. carrot\n")
-            if monster.fight(fight_with) == True:
+
+            if fight_with in backpack:
+                # I have it
+            else:
+                # I dont have it
+
+            if inhabitant.fight(fight_with) == True:
                 print("Hooray, you won the fight!")
                 current_room.set_character(None)
             else:
@@ -80,3 +96,6 @@ while dead == False:
                 print("Seems you don't love your life..")
             else:
                 inhabitant.hug()
+
+    elif command == "take":
+        # Put item in backpack and remove from room
