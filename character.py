@@ -26,10 +26,12 @@ class Character():
     # Fight with this character
     def fight(self, combat_item):
         print(self.name + " doesn't want to fight with you")
-        return True
+        return False
 
 
 class Enemy(Character):
+
+    enemies_defeated = 0
 
     def __init__(self, char_name, char_description):
         super().__init__(char_name, char_description)
@@ -44,10 +46,17 @@ class Enemy(Character):
     def fight(self, combat_item):
         if(combat_item == self.weakness):
             print("You killed " + self.name + " with the " + combat_item)
+            self.enemies_defeated += 1
             return True
         else:
             print(self.name + " crushes you.")
             return False
+
+    def set_defeated(self, number_defeated):
+        self.enemies_defeated = number_defeated
+
+    def get_defeated(self, number_defeated):
+        return self.enemies_defeated
 
     def steal(self):
         print("You steal from " + self.name)
