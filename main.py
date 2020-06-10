@@ -65,7 +65,8 @@ while dead == False:
 
     elif  command  == "talk":
         # Talk to character
-        pass
+        if inhabitant is not None:
+            inhabitant.talk()
         
     elif command == "fight":
         # Fight with character if its enemy
@@ -87,8 +88,6 @@ while dead == False:
                 # I dont have it
                 print("You don't have a " + fight_with)
 
-            
-    
     elif command == "hug":
         if inhabitant == None:
             print("There is no one here to hug :(")
