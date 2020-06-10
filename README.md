@@ -2,6 +2,14 @@
 
 ### An adventure game involving a do-or-die fight with enemy in house.
 
+<h1 align="center"><img src="images/Blueprint.png"></h1>
+
+* Above is the blueprint of the house you would be roaming in. Take care of the directions.
+
+* Below are the enemies you will be meeting in the game. Hope that you will come out safely. (Hint given in the image)
+
+<h1 align="center"><img src="images/Enemies.png"></h1>
+
 ## Requirements
 
 * Python3 
