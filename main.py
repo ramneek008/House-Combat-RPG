@@ -105,3 +105,6 @@ while dead == False:
             current_room.set_item(None)
         else:
             print("There's nothing here to take!")
+
+    else:
+        print("I don't know how to " + command)
