@@ -41,7 +41,6 @@ backpack = []
 # Add a new character
 catrina = Friend("Catrina", "A friendly skeleton")
 catrina.set_conversation("Hello there!")
-ballroom.set_character(catrina)
 
 dead = False
 
@@ -80,6 +79,9 @@ while dead == False:
                 if inhabitant.fight(fight_with) == True:
                     print("Hooray, you won the fight!")
                     current_room.set_character(None)
+                    if inhabitant.get_defeated() == 2:
+                        print("Congratulations, you have killed all the enemies!")
+                        dead = True
                 else:
                     print("Oh dear you lost the fight.")
                     print("That's the end of the game. RIP")

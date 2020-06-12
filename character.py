@@ -46,17 +46,17 @@ class Enemy(Character):
     def fight(self, combat_item):
         if(combat_item == self.weakness):
             print("You killed " + self.name + " with the " + combat_item)
-            self.enemies_defeated += 1
+            Enemy.enemies_defeated += 1
             return True
         else:
             print(self.name + " crushes you.")
             return False
 
     def set_defeated(self, number_defeated):
-        self.enemies_defeated = number_defeated
+        Enemy.enemies_defeated = number_defeated
 
-    def get_defeated(self, number_defeated):
-        return self.enemies_defeated
+    def get_defeated(self):
+        return Enemy.enemies_defeated
 
     def steal(self):
         print("You steal from " + self.name)
