@@ -15,6 +15,7 @@
 * Python3 
 
 ## To run program:
+
 Run main.py to start the game.
 
 ```bash
@@ -22,3 +23,6 @@ cd [[location of the file "main.py"]]
 python main.py
 ```
 
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on the process for submitting pull requests to us.
